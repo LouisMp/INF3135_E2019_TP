@@ -10,7 +10,7 @@
 # Description du travail
 
   Nous voulons dans ce travail, à l'aide d'un sujet moderne `la crypto`, mais qui date des Romains, apprendre et produire un
-  logiciel efficace en langage C.  Simplement la méthode de caesar sera d'usage.  Elle consiste à faire un décalage de caratères.
+  logiciel efficace en langage C.  Simplement la méthode de caesar sera d'usage.  Elle consiste à faire un décalage de caractères.
   
   Le programme doit encoder et décoder `(encrypt, decrypt)` des messages en utilisant une clé simple et un alphabet.
   
@@ -22,7 +22,7 @@
   
 ### Détails sur les options et arguments
 
-#### Options et parametres (si applicable)
+#### Options et paramètres (si applicable)
 
 * ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) -c `<CODE permanent>`
 * ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) -i `<fichier source en entrée avant le traitement>`
@@ -37,7 +37,7 @@
   
   Les options `-d ` ou `-e` spécifient le traitement voulu : décodage ou encodage du message. Elles ne sont pas suivies d'un complément.
   
-  Le chemin par default de l'alphabet est le répertoirte courant. Avec l'option `-a`, il est possible d'ouvrir un fichier nommé
+  Le chemin par défaut de l'alphabet est le répertoire courant. Avec l'option `-a`, il est possible d'ouvrir un fichier nommé
   alphabet.txt situé dans un autre répertoire. L'alphabet provient toujours du fichier alphabet.txt. Un exemple du fichier sera
   inclus dans le fichier data.zip disponible sur le dépôt `GitHub`.
   
@@ -46,7 +46,7 @@
 - ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) facultatif
 
 
-### Quelques exemples de ligne de commande valides (mais pas tous)
+### Quelques exemples de ligne de commande valide (mais pas tous)
 
 + `$ ./tp1 -d -k 2 -c CODE_permanent -i nom_du_fichier_en_entree.ext > fichier_sortie.ext`
 + `$ ./tp1 -k 1 -e -c CODE_permanent`
@@ -111,7 +111,7 @@ penses-tu
  + Aucun message (affichage) n'est nécessaire. Le code de retour est suffisant.
 
 ### Pour le code `1` uniquement
- + Il semble judicieux d'informer l'utilisateur que votre application a certains requis: 
+ + Il semble judicieux d'informer l'utilisateur que votre application à certains requis: 
 ```c
  fprintf(stderr, "Usage: %s <-c CODEpermanent> <-d | -e> <-k valeur> [-i fichier.in] [-o fichier.out] [-a chemin]\n", argv[0]);
 ```
@@ -121,8 +121,8 @@ penses-tu
   Les tests sont de votre responsabilité.
   
   Ce qui est fourni dans l'énoncé est à titre d'exemple. Ceci vous aide pour débuter la réflexion. 
-  Votre rôle est de compléter celle-ci (la réflexion) ainsi que tout ce que vous jugez neécessaire pour obtenir un logiciel
-  qui soit conforme. Il est fort possible que votre logiciel soit soumi à plusieurs cas lors de la correction.
+  Votre rôle est de compléter celle-ci (la réflexion) ainsi que tout ce que vous jugez nécessaire pour obtenir un logiciel
+  qui soit conforme. Il est fort possible que votre logiciel soit soumis à plusieurs cas lors de la correction.
 
 # Makefile
 
@@ -231,7 +231,7 @@ Il n'y aura pas d'humain pour faire fonctionner le programme.
 Votre travail sera soumis à plusieurs cas et les résultats seront évalués par un script `bash`.
 Assurez-vous de bien lire toutes les directives et les requis.
 
-La réflexion est un élément essentiel qu'il faut pratiquer. Vous devez donc réflchir et réaliser
+La réflexion est un élément essentiel qu'il faut pratiquer. Vous devez donc réfléchir et réaliser
 un logiciel qui soit à la hauteur de ce que vous voulez.  Soyez beau, soyez bon, soyez fier.
 
 > > Les fichiers seront soumis au détecteur de plagiat. Faites attention à l'internet.
