@@ -53,7 +53,7 @@
 + `$ ./tp1 -c CODE_permanent -d -k 3 -o fichier.out`
 + `$ ./tp1 -c CODE_permanent -i nom_du_fichier_en_entree.ext -o fichier_sortie.ext -k 7 -e`
 + `$ ./tp1 -c CODE_permanent -d -k 9 < nom_du_fichier_en_entree.ext > fichier_sortie.ext`
-+ `$ ./tp1 -c CODE_permanent -d -k -1 -a ./data/
++ `$ ./tp1 -c CODE_permanent -d -k -1 -a ./data/`
 
 ## Exemples
 
