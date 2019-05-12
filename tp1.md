@@ -105,7 +105,7 @@ penses-tu
 + `5` : une erreur (lecture, ouverture, présence ...) avec le fichier en entrée;
 + `6` : une erreur (création, ...) avec le fichier en sortie; `Attention` Si le fichier existe il faut l'écraser;
 + `7` : l'argument -k n'est pas présent, ou la valeur passée n'est pas conforme;
-+ '8' : l'argument -a est présent, mais impossible d'ouvrir le fichier alphabet.txt;
++ `8` : l'argument -a est présent, mais impossible d'ouvrir le fichier alphabet.txt;
 
 ### Pour les codes `0`, `2`, `3`, `4`, `5`, `6`, `7`, `8`
  + Aucun message (affichage) n'est nécessaire. Le code de retour est suffisant.
