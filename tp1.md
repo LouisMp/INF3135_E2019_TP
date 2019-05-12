@@ -10,12 +10,13 @@
 # Description du travail
 
   Nous voulons dans ce travail, à l'aide d'un sujet moderne `la crypto`, mais qui date des Romains, apprendre et produire un
-  logiciel efficace en langage C.  Simplement la méthode de caesar sera d'usage.  Elle consiste à faire un décalage de caractères.
+  logiciel efficace avec le langage C.  Simplement la méthode de César *caesar cypher* sera d'usage.  Elle consiste à faire
+  un décalage de caractères équivalent à la clé.
   
   Le programme doit encoder et décoder `(encrypt, decrypt)` des messages en utilisant une clé simple et un alphabet.
   
   + Une clé simple est un nombre positif ou négatif;
-  + Un message (deux types) est soit : en clair (~phrase en français) ou déjà encoder (crypté);
+  + Un message (deux types) est soit : en clair (ex. une phrase en français) ou déjà encoder (crypté);
   + Un alphabet est une chaîne de caractères;
   
   Le programme `tp1` doit (et sera) être lancé en `ligne de commande` avec toutes les combinaisons d'options possibles.
@@ -45,6 +46,7 @@
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) obligatoire
 - ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) facultatif
 
+## Exemples
 
 ### Quelques exemples de ligne de commande valide (mais pas tous)
 
@@ -54,8 +56,6 @@
 + `$ ./tp1 -c CODE_permanent -i nom_du_fichier_en_entree.ext -o fichier_sortie.ext -k 7 -e`
 + `$ ./tp1 -c CODE_permanent -d -k 9 < nom_du_fichier_en_entree.ext > fichier_sortie.ext`
 + `$ ./tp1 -c CODE_permanent -d -k -1 -a ./data/`
-
-## Exemples
 
 ### Un message en clair
 
@@ -96,7 +96,7 @@ nclqcq-rs
 penses-tu
 ~~~~
 
-## Gestion des erreurs (Code de retour)
+## Gestion des erreurs (Codes de retour)
 + `0` : le programme s’est exécuté avec succès;
 + `1` : il n'y a `aucun` d'argument ou l'argument `-c` n'est pas présent;
 + `2` : l'argument -c est présent, mais le code n'est pas 12 de long;
