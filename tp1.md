@@ -53,6 +53,7 @@
 + `$ ./tp1 -c CODE_permanent -d -k 3 -o fichier.out`
 + `$ ./tp1 -c CODE_permanent -i nom_du_fichier_en_entree.ext -o fichier_sortie.ext -k 7 -e`
 + `$ ./tp1 -c CODE_permanent -d -k 9 < nom_du_fichier_en_entree.ext > fichier_sortie.ext`
++ `$ ./tp1 -c CODE_permanent -d -k -1 -a ./data/
 
 ## Exemples
 
@@ -94,6 +95,26 @@ nclqcq-rs
 ~~~~
 penses-tu
 ~~~~
+
+## Gestion des erreurs (Code de retour)
++ `0` : le programme s’est exécuté avec succès;
++ `1` : il n'y a `aucun` d'argument ou l'argument `-c` n'est pas présent;
++ `2` : l'argument -c est présent, mais le code n'est pas 12 de long;
++ `3` : un argument non voulu est présent. Voici un exemple : `-t BLA`;
++ `4` : l'argument -d ou -e n'est pas présent;
++ `5` : une erreur (lecture, ouverture, présence ...) avec le fichier en entrée;
++ `6` : une erreur (création, ...) avec le fichier en sortie; `Attention` Si le fichier existe il faut l'écraser;
++ `7` : l'argument -k n'est pas présent, ou la valeur passée n'est pas conforme;
++ '8' : l'argument -a est présent, mais impossible d'ouvrir le fichier alphabet.txt;
+
+### Pour les codes `0`, `2`, `3`, `4`, `5`, `6`, `7`, `8`
+ + Aucun message (affichage) n'est nécessaire. Le code de retour est suffisant.
+
+### Pour le code `1` uniquement
+ + Il semble judicieux d'informer l'utilisateur que votre application a certains requis: 
+```c
+ fprintf(stderr, "Usage: %s <-c CODEpermanent> <-d | -e> <-k valeur> [-i fichier.in] [-o fichier.out] [-a chemin]\n", argv[0]);
+```
 
 # Les tests
 
