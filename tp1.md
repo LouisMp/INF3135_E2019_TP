@@ -193,6 +193,7 @@ pour traquer certaines erreurs et les mauvaises pratiques de programmation.
 - Les `#include` standard au langage C sont tous permis. Tel que `#include <stdio.h>`;
 - Vous ne pouvez pas utiliser des librairies (entêtes et implémentations binaire) `#include "autre.h"` d'un tiers;
 - Le travail pratique 1 est à faire individuellement. Donc chacun doit initialiser son propre dépôt (git) distant *privé*;
+- Chaque exécution sera limité à 99 secondes.
 
 # Remise
 
