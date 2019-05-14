@@ -84,7 +84,7 @@ tvtz vjk le dvjjrxv czjzscv ve wiretrzj jrej cvj rttvekj fl trirtkvivj tfdgcvov.
 abcdefghijklmnopqrstuvwxyz
 ~~~~
 
-### Simplement avec la clé 2 (avec alphabet de [a-z])
+### Décodage avec la clé `-2` (avec alphabet de [a-z]) 
 
 `encodé`
 ~~~~
