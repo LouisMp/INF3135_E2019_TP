@@ -16,7 +16,7 @@
   Le programme doit encoder et décoder `(encrypt, decrypt)` des messages en utilisant une clé simple et un alphabet.
   
   + Une clé simple est un nombre positif ou négatif;
-  + Un message (deux types) est soit : en clair (ex. une phrase en français) ou déjà encoder (crypté);
+  + Un message (deux types) est : en clair (ex. une phrase en français) ou déjà encoder (crypté);
   + Un alphabet est une chaîne de caractères;
   
   Le programme `tp1` doit (et sera) être lancé en `ligne de commande` avec toutes les combinaisons d'options possibles.
@@ -59,27 +59,35 @@
 
 ### Un message en clair
 
-`msg01.txt`
+`msg01.in`
 ~~~~
 ceci est un message lisible en francais sans les accents ou caracteres complexe.
 ~~~~
 
 ### Un message encodé
 
-`msg01e.txt`
+`msg01.out`
 ~~~~
 tvtz vjk le dvjjrxv czjzscv ve wiretrzj jrej cvj rttvekj fl trirtkvivj tfdgcvov.
 ~~~~
 
-### La clé
+### Le traitement (action) `pour automatisation des tests`
 
+`msg01.action`
+~~~
+-e
+~~~
+
+### La clé `pour automatisation des tests`
+
+`msg01.cle`
 ~~~~
 17
 ~~~~
 
 ### L'alphabet
 
-`alphabet.txt`
+`msg01.alphabet`
 ~~~~
 abcdefghijklmnopqrstuvwxyz
 ~~~~
@@ -116,13 +124,21 @@ penses-tu
  fprintf(stderr, "Usage: %s <-c CODEpermanent> <-d | -e> <-k valeur> [-i fichier.in] [-o fichier.out] [-a chemin]\n", argv[0]);
 ```
 
-# Les tests
+# Les tests (jeux d'essai)
 
   Les tests sont de votre responsabilité.
   
   Ce qui est fourni dans l'énoncé est à titre d'exemple. Ceci vous aide pour débuter la réflexion. 
   Votre rôle est de compléter celle-ci (la réflexion) ainsi que tout ce que vous jugez nécessaire pour obtenir un logiciel
-  qui soit conforme. Il est fort possible que votre logiciel soit soumis à plusieurs cas lors de la correction.
+  qui soit conforme. Il est fort possible que votre logiciel soit soumis à plusieurs cas (jeux d'essai) lors de la correction.
+
+### Contenu du fichier `crypto-data.zip`
+> > Ceci est nouveau afin de simplifier 
+- crypto-msg01.alphabet : notre alphabet nécessaire pour le traitement;
+- crypto-msg01.in : le fichier en entrée;
+- crypto-msg01.cle : la clé pour faire le traitement;
+- crypto-msg01.action : le traitement à exécuter sur le fichier en entrée;
+- crypto-msg01.out : le résultat du traitement;
 
 # Makefile
 
@@ -137,7 +153,7 @@ penses-tu
 - Lorsqu'on entre `make data`, le téléchargement des données (fichier zip) https://www.github.com/guyfrancoeur/INF3135_E2019_TP/raw/master/crypto-data.zip se fait
   de façon automatique. La décompression du fichier est est dirigée dans répertoire `./data`;
 
-- Lorsqu'on entre `make test` le programme `tp1` s'exécutera séquentiellement avec les fichiers contenus dans `./data`.
+- Lorsqu'on entre `make test` le programme `tp1` s'exécutera séquentiellement avec les fichiers (jeux d'essai) contenus dans `./data`.
   
 - Lorsqu'on entre `make resultat` le fichier `note-du-tp.txt` situé à la racine du dépôt local sera poussé dans votre dépôt distant.
 
@@ -193,7 +209,7 @@ pour traquer certaines erreurs et les mauvaises pratiques de programmation.
 - Les `#include` standard au langage C sont tous permis. Tel que `#include <stdio.h>`;
 - Vous ne pouvez pas utiliser des librairies (entêtes et implémentations binaire) `#include "autre.h"` d'un tiers;
 - Le travail pratique 1 est à faire individuellement. Donc chacun doit initialiser son propre dépôt (git) distant *privé*;
-- Chaque exécution sera limité à 99 secondes.
+- Chaque exécution sera limitée à 99 secondes.
 
 # Remise
 
