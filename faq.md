@@ -40,7 +40,9 @@
 
 #### R. C'est votre tête!
 ~~~
-Vous pouvez toujours en faire plus, mais faites-le dans le respect de tous, incluant vous même. Tous vos efforts vont vous servir assurément. Mais il ne faut pas tomber malade, tomber épuisé, stresser pour cela.
+Vous pouvez toujours en faire plus, mais faites-le dans le respect de tous, incluant vous même. 
+Tous vos efforts vont vous servir assurément. Mais il ne faut pas tomber malade, tomber épuisé, 
+stresser pour cela.
 ~~~
 
 ### Q. Comment puis-je faire pour accélérer l'acquisition de connaissances ou avoir de bons réflexes ?
