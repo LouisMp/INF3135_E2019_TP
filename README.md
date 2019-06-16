@@ -7,6 +7,7 @@ Le programme tp1 doit être lancé en ligne de commande avec plusieurs combinais
 * ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) -k Une clé simple : un nombre positif ou négatif;
 * ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) -c Le code permanent de l'utilisateur qui doit être de taille 12:
 * ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) -d | -e : décoder OU encoder;
+   
    Ce programme a été conçu et écrit dans le cadre du cours INF3135 session été 2019 à l'Université du Quebec à Montréal.
 
    ## Auteur
