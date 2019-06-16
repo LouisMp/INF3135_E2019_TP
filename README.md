@@ -11,7 +11,7 @@ Le programme tp1 doit être lancé en ligne de commande avec plusieurs combinais
 
    ## Auteur
 
-   par MPANDZO-OTIANKOUYA Louis Junior (MPAL82010003).
+   par *_MPANDZO-OTIANKOUYA_* _Louis Junior_ *(MPAL82010003)*.
 
    ## Fonctionnement
 
@@ -19,6 +19,7 @@ Le programme tp1 doit être lancé en ligne de commande avec plusieurs combinais
    * ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) -i `<fichier source en entrée avant le traitement>` si argument absent, l'utilisateur est solicité pour taper les caractères à crypter.
    * ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) -o `<fichier traité en sortie après l'exécution voulue>` si argument absent, Résultat de la requête enregistré dans le fichier <sortie_standard.out>.
    * ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) -a `<chemin vers le fichier alphabet>` si argument absent, on lira le fichier `<alphabet.txt>` situé dans le repertoire du projet.
+   
    Voici quelques commandes à taper qu'on peut effectuer :
    + `$ ./tp1 -c MPAL82010003 -d -k 3 -o C:\Users\louis\OneDrive\Documents\Cours\Session 4 Été 2019\INF3135\crypto.sortie`
    + `$ ./tp1 -c MPAL82010003 -e -k 30 -a \Documents\Cours\abc.txt -i msg01.in`
