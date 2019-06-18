@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     printf("BIENVENUE ÉTUDIANT MATRUCULE %s :\n", param.codePermanent);
     char alphabet [27];
     char entree [MAX_TAILLE];
-    int i;
     FILE *in = NULL;
     FILE *out = NULL;
     FILE *abc = NULL;
@@ -547,7 +546,7 @@ char crypter (char lettre, int key, const char alphabet[])
     char crypt = lettre;
     int k;
     int position = 30;
-    for(k = 0; k<strlen(alphabet); k++)
+    for(k = 0; k<(int)strlen(alphabet); k++)
     {
         if (alphabet[k] == lettre)
             position = k;
@@ -570,3 +569,4 @@ char crypter (char lettre, int key, const char alphabet[])
 
     return crypt;
 }
+
