@@ -79,9 +79,7 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                            fclose(abc);
-                            fclose(in);
-                            fclose(out);
+
                             return 6;
                         }
                     }
@@ -117,9 +115,7 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                            fclose(abc);
-                            fclose(in);
-                            fclose(out);
+
                             return 6;
                         }
                     }
@@ -127,8 +123,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    fclose(abc);
-                    fclose(in);
+
                     return 5;
                 }
 
@@ -167,8 +162,7 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        fclose(abc);
-                        fclose(out);
+
                         return 6;
                     }
                 }
@@ -203,8 +197,7 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        fclose(abc);
-                        fclose(out);
+
                         return 6;
                     }
                 }
@@ -214,7 +207,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            fclose(abc);
+
             return 8;
         }
 
@@ -263,9 +256,7 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                            fclose(abc);
-                            fclose(in);
-                            fclose(out);
+
                             return 6;
                         }
                     }
@@ -301,9 +292,7 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                            fclose(abc);
-                            fclose(in);
-                            fclose(out);
+
                             return 6;
                         }
                     }
@@ -311,8 +300,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    fclose(abc);
-                    fclose(in);
+
                     return 5;
                 }
 
@@ -351,8 +339,7 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        fclose(abc);
-                        fclose(out);
+
                         return 6;
                     }
                 }
@@ -386,8 +373,7 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        fclose(abc);
-                        fclose(out);
+
                         return 6;
                     }
                 }
@@ -397,7 +383,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            fclose(abc);
+
             return 8;
         }
     }
@@ -468,7 +454,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 if (fichier == NULL)
                 {
                     printf("exit 5");
-                    fclose(fichier);
                     exit(5);
                 }
                 fclose(fichier);
@@ -482,7 +467,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 if (fichier == NULL)
                 {
                     printf("exit 6");
-                    fclose(fichier);
                     exit(6);
                 }
                 fclose(fichier);
@@ -496,7 +480,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 if (fichier == NULL)
                 {
                     printf("exit 8");
-                    fclose(fichier);
                     exit(8);
                 }
                 fclose(fichier);
