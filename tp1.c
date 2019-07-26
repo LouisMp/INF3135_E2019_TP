@@ -413,8 +413,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 param->c = true;
                 if (strlen(argv[taille+1]) != 12 || argv[taille+1][0] == '-')
                 {
-
-                    printf("\nexit 2");
                     exit(2);
                 }
                 else
@@ -436,7 +434,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 param->k = true;
                 if (checkdigit(argv[taille+1]) == false)
                 {
-                    printf("exit 7");
                     exit (7);
                 }
                 else if (argv[taille+1][0] == '-')
@@ -455,8 +452,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 fichier = fopen(argv[taille+1], "r");
                 if (fichier == NULL)
                 {
-                    printf("exit 5");
-                    fclose(fichier);
                     exit(5);
                 }
                 fclose(fichier);
@@ -469,8 +464,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 fichier = fopen(argv[taille+1], "w+");
                 if (fichier == NULL)
                 {
-                    printf("exit 6");
-                    fclose(fichier);
                     exit(6);
                 }
                 fclose(fichier);
@@ -483,8 +476,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 fichier = fopen(argv[taille+1], "r");
                 if (fichier == NULL)
                 {
-                    printf("exit 8");
-                    fclose(fichier);
                     exit(8);
                 }
                 fclose(fichier);
@@ -493,7 +484,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
             }
             else
             {
-                printf("exit 3");
                 exit(3); //fin du if else if
             }
 
@@ -507,7 +497,7 @@ void cmdline (int argc, char *argv [], Parameters *param)
         if (param->d == false && param->e == false)
         {
             exit(4);
-        }
+        }else if (param->d == true && param->e == true) {exit (9);}
         if(param->k == false){
             exit(7);
         }
