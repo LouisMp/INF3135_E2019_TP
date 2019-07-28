@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#define MAX_TAILLE 999
-#define OUTSIDER 777
+#define MAX_TAILLE 4000
+#define OUTSIDER -1
 typedef struct Parameters Parameters;
 struct Parameters
 {
@@ -29,19 +29,20 @@ int main(int argc, char *argv[])
 {
     Parameters param = {false, "", false, false, false, 0, false, "", false, "", false, ""};
     cmdline (argc, argv, &param);
-    printf("BIENVENUE ÉTUDIANT MATRUCULE %s :\n", param.codePermanent);
-    char alphabet [27];
+    char alphabet [MAX_TAILLE];
     char entree [MAX_TAILLE];
     FILE *in = NULL;
     FILE *out = NULL;
     FILE *abc = NULL;
-
     if(param.a)
     {
+        if(param.cheminAlpha[0]=='.' && param.cheminAlpha[1]=='/' && param.cheminAlpha[strlen(param.cheminAlpha)-1]!='/')
+            strcat(param.cheminAlpha, "/alphabet.txt");
+else if(strcmp("./",param.cheminAlpha) ==0) strcat(param.cheminAlpha, "alphabet.txt");
         abc = fopen(param.cheminAlpha, "r");
         if (abc != NULL)
         {
-            fgets(alphabet, 27, abc);
+            fgets(alphabet, MAX_TAILLE, abc);
             if (param.i)
             {
                 in = fopen(param.inFichier, "r");
@@ -59,8 +60,6 @@ int main(int argc, char *argv[])
                                 {
                                     fputc(crypter(entree[i], param.cle, alphabet), out);
                                 }
-
-                                printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                                 fclose(abc);
                                 fclose(in);
                                 fclose(out);
@@ -71,8 +70,6 @@ int main(int argc, char *argv[])
                                 {
                                     fputc(crypter(entree[i], param.cle*-1, alphabet), out);
                                 }
-
-                                printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                                 fclose(abc);
                                 fclose(in);
                                 fclose(out);
@@ -82,60 +79,42 @@ int main(int argc, char *argv[])
                         {
                             fclose(abc);
                             fclose(in);
-                            fclose(out);
                             return 6;
                         }
                     }
                     else
                     {
-                        out = fopen("sortie_standard.out","w+");
-                        if (out != NULL)
+                        if (param.e)
                         {
-                            if (param.e)
+                            for(int i = 0; i < (int)strlen(entree); i++)
                             {
-                                for(int i = 0; i < (int)strlen(entree); i++)
-                                {
-                                    fputc(crypter(entree[i], param.cle, alphabet), out);
-                                }
-
-                                printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                                fclose(abc);
-                                fclose(in);
-                                fclose(out);
+                                printf("%c",crypter(entree[i], param.cle, alphabet));
                             }
-                            else if (param.d)
-                            {
-                                for(int i = 0; i < (int)strlen(entree); i++)
-                                {
-                                    fputc(crypter(entree[i], param.cle*-1, alphabet), out);
-                                }
-                                printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                                fclose(abc);
-                                fclose(in);
-                                fclose(out);
-                            }
-                        }
-                        else
-                        {
                             fclose(abc);
                             fclose(in);
-                            fclose(out);
-                            return 6;
                         }
+                        else if (param.d)
+                        {
+                            for(int i = 0; i < (int)strlen(entree); i++)
+                            {
+                                printf("%c",crypter(entree[i], param.cle*-1, alphabet));
+                            }
+                            fclose(abc);
+                            fclose(in);
+                        }
+
                     }
 
                 }
                 else
                 {
                     fclose(abc);
-                    fclose(in);
                     return 5;
                 }
 
             }
             else
             {
-                printf("\n Veuillez entrée la chaine à encrypter/décrypter : \n");
                 fgets(entree, MAX_TAILLE, stdin);
                 if (param.o)
                 {
@@ -148,7 +127,6 @@ int main(int argc, char *argv[])
                             {
                                 fputc(crypter(entree[i], param.cle, alphabet), out);
                             }
-                            printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                             fclose(abc);
                             fclose(out);
                         }
@@ -158,7 +136,6 @@ int main(int argc, char *argv[])
                             {
                                 fputc(crypter(entree[i], param.cle*-1, alphabet), out);
                             }
-                            printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                             fclose(abc);
                             fclose(out);
                         }
@@ -166,42 +143,26 @@ int main(int argc, char *argv[])
                     else
                     {
                         fclose(abc);
-                        fclose(out);
                         return 6;
                     }
                 }
                 else
                 {
-                    out = fopen("sortie_standard.out","w+");
-                    if (out != NULL)
+                    if (param.e)
                     {
-                        if (param.e)
+                        for(int i = 0; i < (int)strlen(entree); i++)
                         {
-                            for(int i = 0; i < (int)strlen(entree); i++)
-                            {
-                                fputc(crypter(entree[i], param.cle, alphabet), out);
-                            }
-                            printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                            fclose(abc);
-                            fclose(out);
+                            printf("%c",crypter(entree[i], param.cle, alphabet));
                         }
-                        else if (param.d)
-                        {
-                            for(int i = 0; i < (int)strlen(entree); i++)
-                            {
-
-                                fputc(crypter(entree[i], param.cle*-1, alphabet), out);
-                            }
-                            printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                            fclose(abc);
-                            fclose(out);
-                        }
-                    }
-                    else
-                    {
                         fclose(abc);
-                        fclose(out);
-                        return 6;
+                    }
+                    else if (param.d)
+                    {
+                        for(int i = 0; i < (int)strlen(entree); i++)
+                        {
+                            printf("%c",crypter(entree[i], param.cle*-1, alphabet));
+                        }
+                        fclose(abc);
                     }
                 }
 
@@ -210,7 +171,6 @@ int main(int argc, char *argv[])
         }
         else
         {
-            fclose(abc);
             return 8;
         }
 
@@ -220,7 +180,7 @@ int main(int argc, char *argv[])
         abc = fopen("alphabet.txt", "r");
         if (abc != NULL)
         {
-            fgets(alphabet, 27, abc);
+            fgets(alphabet, MAX_TAILLE, abc);
             if (param.i)
             {
                 in = fopen(param.inFichier, "r");
@@ -238,7 +198,6 @@ int main(int argc, char *argv[])
                                 {
                                     fputc(crypter(entree[i], param.cle, alphabet), out);
                                 }
-                                printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                                 fclose(abc);
                                 fclose(in);
                                 fclose(out);
@@ -249,7 +208,6 @@ int main(int argc, char *argv[])
                                 {
                                     fputc(crypter(entree[i], param.cle*-1, alphabet), out);
                                 }
-                                printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                                 fclose(abc);
                                 fclose(in);
                                 fclose(out);
@@ -259,59 +217,42 @@ int main(int argc, char *argv[])
                         {
                             fclose(abc);
                             fclose(in);
-                            fclose(out);
                             return 6;
                         }
                     }
                     else
                     {
-                        out = fopen("sortie_standard.out","w+");
-                        if (out != NULL)
+                        if (param.e)
                         {
-                            if (param.e)
+                            for(int i = 0; i < (int)strlen(entree); i++)
                             {
-                                for(int i = 0; i < (int)strlen(entree); i++)
-                                {
-                                    fputc(crypter(entree[i], param.cle, alphabet), out);
-                                }
-                                printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                                fclose(abc);
-                                fclose(in);
-                                fclose(out);
+                                printf("%c",crypter(entree[i], param.cle, alphabet));
                             }
-                            else if (param.d)
-                            {
-                                for(int i = 0; i < (int)strlen(entree); i++)
-                                {
-                                    fputc(crypter(entree[i], param.cle*-1, alphabet), out);
-                                }
-                                printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                                fclose(abc);
-                                fclose(in);
-                                fclose(out);
-                            }
-                        }
-                        else
-                        {
                             fclose(abc);
                             fclose(in);
-                            fclose(out);
-                            return 6;
                         }
+                        else if (param.d)
+                        {
+                            for(int i = 0; i < (int)strlen(entree); i++)
+                            {
+                                printf("%c",crypter(entree[i], param.cle*-1, alphabet));;
+                            }
+                            fclose(abc);
+                            fclose(in);
+                        }
+
                     }
 
                 }
                 else
                 {
                     fclose(abc);
-                    fclose(in);
                     return 5;
                 }
 
             }
             else
             {
-                printf("\n Veuillez entrée la chaine à encrypter/décrypter : \n");
                 fgets(entree, MAX_TAILLE, stdin);
                 if (param.o)
                 {
@@ -324,7 +265,6 @@ int main(int argc, char *argv[])
                             {
                                 fputc(crypter(entree[i], param.cle, alphabet), out);
                             }
-                            printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                             fclose(abc);
                             fclose(out);
                         }
@@ -334,7 +274,6 @@ int main(int argc, char *argv[])
                             {
                                 fputc(crypter(entree[i], param.cle*-1, alphabet), out);
                             }
-                            printf("\nRésultat de la requête enregistré dans le fichier %s.\nFin de programme normale.", param.outFichier);
                             fclose(abc);
                             fclose(out);
                         }
@@ -342,42 +281,28 @@ int main(int argc, char *argv[])
                     else
                     {
                         fclose(abc);
-                        fclose(out);
                         return 6;
                     }
                 }
                 else
                 {
-                    out = fopen("sortie_standard.out","w+");
-                    if (out != NULL)
+                    if (param.e)
                     {
-                        if (param.e)
+                        for(int i = 0; i < (int)strlen(entree); i++)
                         {
-                            for(int i = 0; i < (int)strlen(entree); i++)
-                            {
-                                fputc(crypter(entree[i], param.cle, alphabet), out);
-                            }
-                            printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                            fclose(abc);
-                            fclose(out);
+                            printf("%c",crypter(entree[i], param.cle, alphabet));
                         }
-                        else if (param.d)
-                        {
-                            for(int i = 0; i < (int)strlen(entree); i++)
-                            {
-                                fputc(crypter(entree[i], param.cle*-1, alphabet), out);
-                            }
-                            printf("\nRésultat de la requête enregistré dans le fichier <sortie_standard.out>.\nFin de programme normale.");
-                            fclose(abc);
-                            fclose(out);
-                        }
-                    }
-                    else
-                    {
                         fclose(abc);
-                        fclose(out);
-                        return 6;
                     }
+                    else if (param.d)
+                    {
+                        for(int i = 0; i < (int)strlen(entree); i++)
+                        {
+                            printf("%c",crypter(entree[i], param.cle*-1, alphabet));
+                        }
+                        fclose(abc);
+                    }
+
                 }
 
             }
@@ -385,7 +310,6 @@ int main(int argc, char *argv[])
         }
         else
         {
-            fclose(abc);
             return 8;
         }
     }
@@ -435,10 +359,6 @@ void cmdline (int argc, char *argv [], Parameters *param)
                 if (checkdigit(argv[taille+1]) == false)
                 {
                     exit (7);
-                }
-                else if (argv[taille+1][0] == '-')
-                {
-                    param->cle = atoi(argv[taille+1]) * -1;
                 }
                 else
                 {
@@ -497,8 +417,9 @@ void cmdline (int argc, char *argv [], Parameters *param)
         if (param->d == false && param->e == false)
         {
             exit(4);
-        }else if (param->d == true && param->e == true) {exit (9);}
-        if(param->k == false){
+        }
+        if(param->k == false)
+        {
             exit(7);
         }
     }
@@ -527,26 +448,36 @@ char crypter (char lettre, int key, const char alphabet[])
     char crypt = lettre;
     int k;
     int position = OUTSIDER;
-    for(k = 0; k<(int)strlen(alphabet); k++)
+    int taille = (int)strlen(alphabet);
+    if(lettre != ' ')
     {
-        if (alphabet[k] == lettre)
-            position = k;
-    }
-    if (position != OUTSIDER)
-    {
-        position+=key;
-        if(position>25)
+        for(k = 0; k<taille-1; ++k)
         {
-            position-=26;
+            if (alphabet[k] == lettre)
+                position = k;
         }
-        else if(position < 0)
+        if (position != OUTSIDER)
         {
-            position+=26;
+            position+=key;
+            if(position>=taille -1)
+            {
+                position=position%(taille-1);
+            }
+            else if(position < 0)
+            {
+                int q = position/(taille-1);
+                if(q==0)
+                    q=-1;
+                else
+                    q=q*-1;
+                position=position-((taille-1)*q);
+                
+            }
+
+
+            crypt = alphabet[position];
         }
-
-        crypt = alphabet[position];
     }
-
 
     return crypt;
 }
